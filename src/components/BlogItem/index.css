@@ -1,0 +1,19 @@
+/* Write your CSS code here */
+.avatarProfile1 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.blog-item-link {
+  text-decoration: none;
+}
+.topic {
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+.title1 {
+  font-weight: 600;
+  font-size: 20px !important;
+  color: black;
+}
