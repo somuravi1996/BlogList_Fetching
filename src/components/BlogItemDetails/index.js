@@ -1,9 +1,13 @@
 // Write your JS code here
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
+// import BlogItem from '../BlogItem'
+
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import './index.css'
 
 class BlogItemDetails extends Component {
-  state = {blogItemContent: []}
+  state = {blogItemContent: [], isLoading: true}
 
   componentDidMount() {
     this.getBlogDataContent()
@@ -26,7 +30,7 @@ class BlogItemDetails extends Component {
       avatarUrl: data.avatar_url,
       content: data.content,
     }
-    this.setState({blogItemContent: updateContent})
+    this.setState({blogItemContent: updateContent, isLoading: false})
   }
 
   renderBlogDetailes = () => {
@@ -66,7 +70,22 @@ class BlogItemDetails extends Component {
   }
 
   render() {
-    return <div className="container">{this.renderBlogDetailes()}</div>
+    const {isLoading} = this.state
+    return (
+      <div className="container">
+        {isLoading ? (
+          <Loader
+            className="text-center"
+            type="TailSpin"
+            color="#00bfff"
+            height={50}
+            width={50}
+          />
+        ) : (
+          this.renderBlogDetailes()
+        )}
+      </div>
+    )
   }
 }
 
